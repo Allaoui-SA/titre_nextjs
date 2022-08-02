@@ -2,10 +2,11 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Header from '../components/Header'
 import Image from 'next/image'
+import Feed from '../components/Feed'
 
 const Home: NextPage = () => {
   return (
-    <div className="">
+    <div className="h-screen">
       <Head>
         <title>Festiv&apos;App</title>
         <link rel="icon" href="/favicon.ico" />
@@ -15,7 +16,7 @@ const Home: NextPage = () => {
       <Header/>
 
       {/* Feed */}
-
+      <Feed />
       {/* Modal */}
     </div>
   )

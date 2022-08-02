@@ -3,7 +3,24 @@
 @tailwind utilities;
 
 @layer components {
+  html {
+    background: #F4ECEF;
+  }
   .navBtn {
     @apply hidden h-6 md:inline-flex cursor-pointer hover:scale-125 transition-all duration-150 ease-out;
+  }
+  .storyDiv {
+    @apply rounded-full  
+  }
+  .storyImg {
+    @apply h-12 w-12 rounded-full p-0.5 border-red-500 border-2 cursor-pointer hover:scale-105 hover:border-purple-500 transition-all duration-200 ease-out;
+    min-width: 3rem;
+    min-height: 3rem;
+  }
+  .scrollbar-thin {
+    --scrollbar-thumb: #F1AB95 !important;
+  }
+  .feed-btn {
+    @apply h-7 hover:scale-125 cursor-pointer transition-all duration-150 ease-out;
   }
 }
