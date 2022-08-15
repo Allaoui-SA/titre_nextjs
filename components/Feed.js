@@ -1,4 +1,3 @@
-import MiniProfile from "./MiniProfile";
 import Posts from "./Posts";
 
 export default function Feed() {

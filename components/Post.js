@@ -1,17 +1,11 @@
 import {
-  SearchIcon,
-  PlusCircleIcon,
-  UserGroupIcon,
   HeartIcon,
   PaperAirplaneIcon,
-  MenuIcon,
   ChatIcon,
   BookmarkIcon,
   EmojiHappyIcon,
 } from "@heroicons/react/outline"
-import { DotsCircleHorizontalIcon, DotsHorizontalIcon, HomeIcon } from "@heroicons/react/solid"
-
-import {HeartIcon as HeartIconFilled} from "@heroicons/react/solid"
+import { DotsHorizontalIcon } from "@heroicons/react/solid"
 import { addDoc, collection, query, onSnapshot, orderBy, serverTimestamp, setDoc } from "firebase/firestore"
 import { useSession } from "next-auth/react"
 import { useEffect, useState } from "react"
