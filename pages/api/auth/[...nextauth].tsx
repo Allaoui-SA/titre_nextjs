@@ -9,6 +9,7 @@ export default NextAuth({
       clientSecret: process.env.GOOGLE_CLIENT_SECRET as string
     }),
   ],
+  secret: "MsvHRFxZchID7KGvmIpgvv6ESQH1/WFMYC4m+TFTwHc=",
   pages: {
     signIn: "/auth/signin",
   },
