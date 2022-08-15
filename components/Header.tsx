@@ -8,14 +8,23 @@ import {
   MenuIcon,
 } from "@heroicons/react/outline"
 import { HomeIcon } from "@heroicons/react/solid"
+import { signIn, signOut, useSession } from 'next-auth/react'
+import { useRouter } from 'next/router'
+import { useRecoilState } from 'recoil'
+import { modalState } from '../atoms/modalAtom'
 
 export default function Header() {
+  const { data: session } = useSession()
+  const [open, setOpen] = useRecoilState(modalState)
+  const router = useRouter()
+
+
   return (
     <div className="shadow-sm border-b bg-white sticky top-0 z-50">
-      <div className="flex justify-between max-w-6xl mx-5 lg:mx-auto">
+      <div className="flex justify-between max-w-6xl mx-5 py-3 lg:mx-auto">
 
         {/* Left - Logo */}
-        <div className="relative hidden lg:inline-grid cursor-pointer">
+        <div className="relative hidden lg:inline-grid cursor-pointer" onClick={() => router.push("/")}>
           <Image 
             src="/logo.png" 
             width={160}
@@ -34,21 +43,29 @@ export default function Header() {
 
         {/* Right */}
         <div className="flex items-center justify-end space-x-4">
-          {/* Search Form */}
-          <div className="max-w-xs">
-            <div className="relative mt-1 p-3 rounded-md">
-              <div className="absolute inset-y-0 pl-3 flex items-center pointer-events-none">
-                <SearchIcon className="h-5 w-5 text-gray-500"/>
-              </div>
-              <input className="bg-gray-50 block w-full pl-10 sm:text-sm rounded-xl border-gray-300 focus:ring-black focus:border-black" type="text" placeholder="Search"></input>
-            </div>
-          </div>
-          {/* Profile picture */}
-          <img 
-            src="/profile_picture.webp"
-            alt="profile picture"
-            className="h-12 w-12 rounded-full curso-pointer"
-          />
+          {session ? (
+            <>
+              {/* Profile picture */}
+              <PlusCircleIcon onClick={() => setOpen(true)} className="navBtn inline-flex" />
+              <img 
+                src={session.user.image}
+                alt="profile picture"
+                className="h-12 min-w-12 rounded-full curso-pointer"
+              />
+              <button className="text-sm font-semibold text-blue-500 hover:text-red-400 transition duration-150" onClick={() => signOut({ callbackUrl: "/auth/signin"})}>Sign Out</button>
+            </>
+          ) : (
+            <>
+              <img 
+                src="/user.jpeg"
+                alt="profile picture"
+                className="h-12 w-12 rounded-full curso-pointer"
+                />
+              <button className="text-sm font-semibold text-blue-500 hover:text-red-400 transition duration-150" onClick={signIn}>Sign In</button>
+            </>
+          )}
+          
+          
         </div>
       </div>
     </div>

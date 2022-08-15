@@ -1,10 +1,11 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Header from '../components/Header'
-import Image from 'next/image'
 import Feed from '../components/Feed'
+import Modal from '../components/Modal'
 
 const Home: NextPage = () => {
+  
   return (
     <div className="h-screen">
       <Head>
@@ -13,10 +14,12 @@ const Home: NextPage = () => {
       </Head>
 
       {/* Header */}
+      <Modal />
       <Header/>
 
       {/* Feed */}
       <Feed />
+
       {/* Modal */}
     </div>
   )

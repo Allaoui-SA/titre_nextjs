@@ -23,4 +23,19 @@
   .feed-btn {
     @apply h-7 hover:scale-125 cursor-pointer transition-all duration-150 ease-out;
   }
+  .form {
+    @apply w-full flex flex-col items-center;
+  }
+  .form * {
+    @apply w-full;
+  }
+  .form input {
+    @apply border-0 outline-hidden;
+    height: 70px;
+    border-radius: 20px;
+  }
+  .form .submit {
+    @apply text-white font-bold;
+    background: linear-gradient(180deg, #F1AB95 0%, rgba(205, 70, 112, 0.8) 100%);
+  }
 }
